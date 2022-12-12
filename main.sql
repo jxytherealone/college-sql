@@ -1,3 +1,22 @@
+-- create the EmployeeDetails table
+CREATE TABLE EmployeeDetails (
+    EmpId INTEGER PRIMARY KEY,
+    FullName TEXT,
+    ManagerId INTEGER,
+    DateOfJoining DATE,
+    City TEXT
+);
+
+-- create the EmployeeSalary table
+CREATE TABLE EmployeeSalary (
+    EmpId INTEGER PRIMARY KEY,
+    Project TEXT,
+    Salary INTEGER,
+    Variable INTEGER
+);
+
+
+
 --Ques: 1 Write an SQL query to fetch the EmpId and FullName of all the employees working under the Manager with id – 968.
 
 SELECT EmpId, FullName
