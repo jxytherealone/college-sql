@@ -56,3 +56,51 @@ WHERE EmpId IN (SELECT EmpId FROM EmployeeSalary WHERE Project != 'P1');
 
 SELECT EmpId, Salary + Variable AS TotalSalary
 FROM EmployeeSalary;
+
+
+--Ques 10: Write an SQL query to fetch the employees whose name begins with any two characters, followed by a text “hn” and ends with any sequence of characters.
+
+SELECT *
+FROM EmployeeDetails
+WHERE FullName LIKE '__hn%';
+
+
+--Ques 11: Write an SQL query to fetch all the EmpIds which are present in either of the tables – ‘EmployeeDetails’ and ‘EmployeeSalary’.
+
+SELECT EmpId
+FROM EmployeeDetails
+UNION
+SELECT EmpId
+FROM EmployeeSalary;
+
+
+--Ques 12: Write an SQL query to fetch common records between two tables.
+
+SELECT *
+FROM EmployeeDetails
+WHERE EmpId IN (SELECT EmpId FROM EmployeeSalary);
+
+
+--Ques 13: Write an SQL query to fetch records that are present in one table but not in another table.
+
+SELECT *
+FROM EmployeeDetails
+WHERE EmpId NOT IN (SELECT EmpId FROM EmployeeSalary);
+
+
+--Ques 14: Write an SQL query to fetch the EmpIds that are present in both the tables – ‘EmployeeDetails’ and ‘EmployeeSalary.
+
+SELECT EmpId
+FROM EmployeeDetails
+INTERSECT
+SELECT EmpId
+FROM EmployeeSalary;
+
+
+--Ques 15: Write an SQL query to fetch the EmpIds that are present in EmployeeDetails but not in EmployeeSalary.
+
+SELECT EmpId
+FROM EmployeeDetails
+EXCEPT
+SELECT EmpId
+FROM EmployeeSalary;
